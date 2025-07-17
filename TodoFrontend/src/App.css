@@ -1,0 +1,381 @@
+/* Genel App konteyner stilleri */
+.App {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* Sabit yükseklik, taşarsa kaydırma çubuğu */
+  overflow: hidden; /* Dışarı taşan içeriği gizle */
+}
+
+.app-fixed-header-form {
+  flex-shrink: 0; /* Sabit üst kısım küçülmesin */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.App h1 {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.App .todo-list-heading {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+form input[type="text"] {
+  flex-grow: 1; /* Mevcut alanı doldur */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"]:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+}
+
+form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.app-scrollable-list {
+  flex-grow: 1; /* Kalan alanı doldur */
+  overflow-y: auto; /* Dikey kaydırma çubuğu */
+  padding-right: 10px; /* Kaydırma çubuğu için sağdan boşluk */
+  padding-bottom: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.app-scrollable-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-scrollable-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.app-scrollable-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.app-scrollable-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  position: relative; /* İçindeki mutlak konumlandırılmış elemanlar için */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* responsive için */
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding-top: 35px; /* Tarih etiketleri için yeterli üst boşluk */
+  padding-bottom: 10px; /* Alttan boşluk */
+  padding-left: 15px; /* Sol kenardan boşluk */
+  padding-right: 15px; /* Sağ kenardan boşluk */
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Güncelleme Tarihi Stili (sağ üst) */
+.last-updated-date {
+    position: absolute;
+    top: 1px; /* Üstten boşluk */
+    right: 10px; /* Sağdan boşluk */
+    font-size: 0.75rem; /* Daha küçük font */
+    color: #6c757d; /* Gri renk */
+    white-space: nowrap; /* Tek satırda kalmasını sağla */
+    z-index: 3; /* En üstte görünmesini sağla */
+}
+
+/* Checkbox ve Tamamlanma Tarihi Kapsayıcısı */
+.checkbox-completion-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Checkbox ve tamamlanma tarihi arasında boşluk */
+    position: absolute; /* Li'ye göre konumlandır */
+    top: 8px; /* Li'nin üst kenarına yakın */
+    left: 10px; /* Li'nin sol kenarına yakın */
+    z-index: 3; /* En üstte görünmesini sağla */
+}
+
+li input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    flex-shrink: 0; /* Küçülmesini engelle */
+    accent-color: #28a745; /* Tik rengi */
+    margin: 0; /* Kapsayıcı içinde olduğu için marjin sıfır */
+}
+
+/* Tamamlanma Tarihi Stili (checkbox'ın hemen yanında) */
+.completion-date {
+    font-size: 0.75rem; /* Daha küçük font */
+    color: #28a745; /* Mavi renk */
+    font-weight: bold;
+    white-space: nowrap; /* Tek satırda kalmasını sağla */
+    margin-left: 0; /* Kapsayıcı içinde olduğu için marjin sıfır */
+}
+
+li > span { /* Todo adı için - dikkat: doğrudan li'nin altındaki span */
+  flex-grow: 1; /* Kalan alanı kapla */
+  text-align: left;
+  word-break: break-word; /* Uzun kelimeleri kırma */
+  margin-left: 45px; /* Checkbox ve tarih kapsayıcısının sağından başla */
+  margin-right: 10px; /* Sağdaki sil butonu ile arada boşluk bırak */
+  padding-top: 10px; /* Tarihlerle çakışmaması için biraz boşluk */
+  padding-bottom: 5px; /* Alt boşluk */
+}
+
+li span[style*="line-through"] {
+  color: #777;
+  font-style: italic;
+}
+
+li button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0; /* Küçülmesini engelle */
+  margin-left: auto; /* Otomatik olarak sağa yasla */
+}
+
+li button.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+li button.delete-btn:hover {
+  background-color: #c82333;
+}
+
+li button.save-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+li button.save-btn:hover {
+  background-color: #0056b3;
+}
+
+li button.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+li button.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Düzenleme modundaki panel */
+li .edit-panel {
+  flex-basis: 100%; /* Tüm satırı kapla */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px; /* Üstteki tarihlerle çakışmaması için boşluk */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  box-sizing: border-box; /* Padding ve border genişliğe dahil */
+  z-index: 2; /* Tarihlerin altında kalmasın */
+}
+
+li .edit-panel input[type="text"] {
+  width: calc(100% - 20px); /* Padding için ayar */
+  padding: 10px;
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 10px; /* Butonlarla arasında boşluk */
+  box-sizing: border-box;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.edit-panel button {
+    flex-grow: 1;
+    max-width: 150px; /* Maksimum genişlik */
+    margin-left: 0; /* Otomatik marjini sıfırla */
+    padding: 10px 15px;
+    font-size: 1rem;
+}
+
+
+/* Responsive ayarlar */
+@media (max-width: 600px) {
+  .App {
+    padding: 15px;
+    border-radius: 0;
+    min-height: 100vh;
+    justify-content: flex-start;
+    box-shadow: none;
+    height: auto; /* İçeriğe göre otomatik yükseklik */
+  }
+
+  .app-fixed-header-form {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  form input[type="text"] {
+    width: 100%;
+  }
+
+  form button[type="submit"] {
+    width: 100%;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    padding-top: 35px; /* Mobil görünümde üst boşluğu yeterli seviyeye ayarla */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Mobil görünümde checkbox ve tamamlanma tarihi kapsayıcısı */
+  .checkbox-completion-container {
+      top: 8px; /* Üstten boşluk */
+      left: 10px; /* Soldan boşluk */
+      position: absolute;
+      z-index: 3;
+      /* background-color: rgba(255, 255, 0, 0.2); Test için */
+  }
+
+  li input[type="checkbox"] {
+      margin-right: 5px; /* Checkbox ve yazı arası boşluk */
+  }
+
+  .completion-date {
+      font-size: 0.60rem; /* Mobil görünümde fontu daha da küçült */
+      margin-left: 0; /* Kapsayıcı içinde olduğu için marjin sıfır */
+      /* background-color: rgba(0, 255, 255, 0.2); Test için */
+  }
+
+  .last-updated-date {
+      top: 8px; /* Mobil görünümde Güncelleme Tarihini tamamlanma tarihi ile aynı hizaya getir */
+      padding-left: 265px;
+      right: 10px;
+      font-size: 0.60rem; /* Mobil görünümde fontu daha da küçült */
+      z-index: 3;
+      /* background-color: rgba(255, 0, 255, 0.2); Test için */
+  }
+
+  li > span { /* Todo adı için */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      padding-top: 0;
+  }
+
+  /* Mobil için düzenleme paneli */
+  li .edit-panel {
+      width: 100%;
+      margin-left: 0;
+      padding: 8px;
+      margin-top: 8px;
+      z-index: 2;
+  }
+
+  li .edit-panel input[type="text"] {
+      width: 100%; /* Mobil görünümde tam genişlik */
+      margin-bottom: 8px;
+  }
+
+  .edit-buttons {
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+  }
+
+  .edit-panel button {
+      width: 100%;
+      max-width: none;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+  }
+
+  li button.delete-btn {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 5px;
+      z-index: 2;
+  }
+}

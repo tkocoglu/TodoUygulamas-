@@ -1,0 +1,25 @@
+/* Genel sıfırlama */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Temel gövde stilleri */
+body {
+  font-family: 'Roboto', 'Arial', sans-serif; /* Roboto veya Arial fontlarını dene */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #05070a; /* Sade arka plan */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Genel kapsayıcılar için stil */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ekranın tamamını kapla */
+  padding: 20px; /* Kenarlardan boşluk */
+}
