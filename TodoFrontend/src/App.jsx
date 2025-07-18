@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Dikdörtgenle işaretlediğiniz, sabit kalmasını istediğiniz üst kısım */}
+      {/* sabit üst kısım */}
       <div className="app-fixed-header-form">
         <h1>Todo Uygulaması</h1>
         
