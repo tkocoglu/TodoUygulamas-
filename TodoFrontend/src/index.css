@@ -7,10 +7,10 @@
 
 /* Temel gövde stilleri */
 body {
-  font-family: 'Roboto', 'Arial', sans-serif; /* Roboto veya Arial fontlarını dene */
+  font-family: 'Roboto', 'Arial', sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #05070a; /* Sade arka plan */
+  background-color: #05070a; 
   color: #333;
   line-height: 1.6;
 }
@@ -20,6 +20,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ekranın tamamını kapla */
-  padding: 20px; /* Kenarlardan boşluk */
+  min-height: 100vh; 
+  padding: 20px;
 }
