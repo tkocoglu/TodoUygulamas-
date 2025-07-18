@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Cors;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// builder.Services.AddOpenApi(); // Bu satırı kaldırın veya yorum satırı yapın
+// builder.Services.AddOpenApi(); 
 
 builder.Services.AddEndpointsApiExplorer(); // API uç noktalarını keşfetmek için gerekli
 builder.Services.AddSwaggerGen(); // Swagger/OpenAPI tanımını oluşturmak için gerekli
@@ -31,7 +31,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    // app.MapOpenApi(); // Bu satırı kaldırın veya yorum satırı yapın
+   
     app.UseSwagger(); // Swagger middleware'ini etkinleştirir
     app.UseSwaggerUI(); // Swagger UI'ı kullanıma açar
 }
@@ -39,7 +39,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
 
-app.UseAuthorization(); // Bu satırı ekleyelim, varsayılan şablonlarda genellikle olur
+app.UseAuthorization();
 app.MapControllers();
 
 var summaries = new[]
@@ -60,7 +60,7 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast")
-.WithOpenApi(); // Yeni eklenen: Bu satır, bu endpoint'in Swagger dokümantasyonunda görünmesini sağlar.
+.WithOpenApi(); // Bu satır, bu endpoint'in Swagger dokümantasyonunda görünmesini sağlar.
 
 app.Run();
 
